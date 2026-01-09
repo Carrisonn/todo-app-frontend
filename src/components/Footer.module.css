@@ -1,0 +1,18 @@
+footer {
+  color: #000;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+
+  a {
+    display: inline-flex;
+    color: inherit;
+    text-decoration: wavy;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      color: var(--primary-color);
+    }
+  }
+}

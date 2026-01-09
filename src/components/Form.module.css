@@ -1,0 +1,61 @@
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #dfdfdf;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 3px 3px 3px rgb(104, 104, 104);
+}
+
+input {
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: var(--font-size-text);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  transition: box-shadow .2s ease-in-out;
+}
+
+input:focus {
+  border-color: #999;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 3px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+select {
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: var(--font-size-text);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+}
+
+button {
+  padding: 1rem;
+  font-size: var(--font-size-text);
+  color: var(--white-color);
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+  transition: transform .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+
+  &:active {
+    transform: scale(.95);
+  }
+}
