@@ -1,4 +1,4 @@
-form {
+.form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@ form {
   box-shadow: 0px 3px 3px 3px rgb(104, 104, 104);
 }
 
-input {
+.input {
   padding: 1rem;
   border-radius: 1rem;
   font-size: var(--font-size-text);
@@ -21,7 +21,7 @@ input {
   transition: box-shadow .2s ease-in-out;
 }
 
-input:focus {
+.input:focus {
   border-color: #999;
   box-shadow:
     0 2px 4px rgba(0, 0, 0, 0.2),
@@ -29,7 +29,7 @@ input:focus {
   outline: none;
 }
 
-select {
+.select {
   padding: 1rem;
   border-radius: 1rem;
   font-size: var(--font-size-text);
@@ -40,7 +40,7 @@ select {
   background-color: #ffffff;
 }
 
-button {
+.button {
   padding: 1rem;
   font-size: var(--font-size-text);
   color: var(--white-color);

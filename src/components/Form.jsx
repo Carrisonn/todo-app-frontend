@@ -1,7 +1,7 @@
 import { useEffect, useId, useState } from 'react'
 import { useTaskStore } from '../store/taskStore.js'
 import { taskFormatter } from '../utils/taskFormatter.js'
-import './Form.module.css'
+import styles from './Form.module.css'
 
 export function Form() {
   const idInput = useId()
@@ -51,8 +51,9 @@ export function Form() {
 
   return (
     <section >
-      <form onSubmit={handleSubmit} method='POST'>
+      <form className={styles.form} onSubmit={handleSubmit} method='POST'>
         <input
+          className={styles.input}
           name={idInput}
           value={inputValue}
           onChange={handleInputChange}
@@ -61,13 +62,13 @@ export function Form() {
           autoComplete='off'
           required
         />
-        <select onChange={handleSelectChange} value={selectValue} name={idSelect} required>
+        <select className={styles.select} onChange={handleSelectChange} value={selectValue} name={idSelect} required>
           <option value="" defaultChecked hidden>Selecciona una prioridad</option>
           <option value="Baja">Baja</option>
           <option value="Media">Media</option>
           <option value="Alta">Alta</option>
         </select>
-        <button type='submit'>{buttonText}</button>
+        <button className={styles.button} type='submit'>{buttonText}</button>
 
         {
           message && <p className={`feedback_message ${typeMessage}`}>{message}</p>
