@@ -86,3 +86,16 @@ section {
 .success {
   background-color: #58be58;
 }
+
+.swal2-popup {
+  font-size: 20px;
+
+  & .swal2-actions {
+    padding: 1rem;
+  }
+
+  & h2 {
+    text-wrap: balance;
+    padding: 1rem;
+  }
+}
