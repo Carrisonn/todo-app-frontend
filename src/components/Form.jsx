@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react'
 import { useTaskStore } from '../store/taskStore.js'
 import { taskFormatter } from '../utils/taskFormatter.js'
+import { Toast } from './Toast.jsx'
 import styles from './Form.module.css'
 
 export function Form() {
@@ -12,7 +13,6 @@ export function Form() {
 
   const createTask = useTaskStore(state => state.createTask)
   const message = useTaskStore(state => state.message)
-  const typeMessage = useTaskStore(state => state.typeMessage)
   const editTask = useTaskStore(state => state.editTask)
   const editingTask = useTaskStore(state => state.editingTask)
   const setEditingTask = useTaskStore(state => state.setEditingTask)
@@ -71,7 +71,7 @@ export function Form() {
         <button className={styles.button} type='submit'>{buttonText}</button>
 
         {
-          message && <p className={`feedback_message ${typeMessage}`}>{message}</p>
+          message && <Toast message={message} />
         }
       </form>
     </section>
