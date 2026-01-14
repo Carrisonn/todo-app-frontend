@@ -1,10 +1,12 @@
 import styles from './TaskCard.module.css'
 import { useTaskStore } from '../store/taskStore.js'
+import { Toast } from './Toast.jsx'
 
 export function TaskCard({ task }) {
   const deleteTask = useTaskStore(state => state.deleteTask)
   const toogleTaskStatus = useTaskStore(state => state.toogleTaskStatus)
   const setEditingTask = useTaskStore(state => state.setEditingTask)
+  const message = useTaskStore(state => state.message)
 
   const handleDeleteTask = taskID => {
     if (!taskID) return
@@ -36,6 +38,10 @@ export function TaskCard({ task }) {
         <button className={styles.edit_button} onClick={() => handleEditingTask(task)}>Editar</button>
       </div>
       <p className={styles.creation_date}>{task.creation_date}</p>
+
+      {
+        message && <Toast message={message} />
+      }
     </div>
   )
 }
