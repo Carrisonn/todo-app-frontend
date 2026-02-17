@@ -1,14 +1,16 @@
 import { useEffect } from 'react'
-import { useTaskStore } from '../store/taskStore.js'
-import { useOrder } from '../../hooks/useOrder.jsx'
+import { useStore } from '../store/store.js'
+import { useOrder } from '../hooks/useOrder.jsx'
 import { TaskCard } from './TaskCard.jsx'
 import styles from './TaskList.module.css'
+import { useTaskAPI } from '../hooks/useTaskAPI.jsx'
 
 export function TaskList() {
-  const tasks = useTaskStore(state => state.tasks)
-  const getTasks = useTaskStore(state => state.getTasks)
-  const isLoading = useTaskStore(state => state.isLoading)
-  const orderedTasks = useOrder(tasks)
+  const tasks = useStore(state => state.tasks)
+  const isLoading = useStore(state => state.isLoading)
+
+  const { sortedTasks } = useOrder(tasks)
+  const { getTasks } = useTaskAPI()
 
   useEffect(() => {
     getTasks()
@@ -19,7 +21,7 @@ export function TaskList() {
       {
         isLoading
           ? <div className={styles.loader}></div>
-          : orderedTasks.map(task => <TaskCard key={task.id} task={task} />)
+          : sortedTasks.map(task => <TaskCard key={task.id} task={task} />)
       }
     </section>
   )
